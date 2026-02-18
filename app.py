@@ -23,7 +23,8 @@ if uploaded_file is not None:
     with open(save_path,"wb") as f:
         f.write(uploaded_file.getbuffer())
 
-    process_document = process_document_to_chroma_db(uploaded_file)
+    process_document = process_document_to_chroma_db(uploaded_file.name)
+
     st.info("Document Processed Successfully")
 
 #text widget to get user input
@@ -34,4 +35,5 @@ if st.button("Answer"):
     answer = answer_question(user_question)
 
     st.markdown("###  Llama-3.3-70B Response")
+
     st.markdown(answer)
