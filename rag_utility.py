@@ -26,7 +26,7 @@ embedding = HuggingFaceEmbeddings()
 #     model_name="sentence-transformers/all-mpnet-base-v2"
 # )
 
-vec = embeddings.embed_query("Hello world")
+vec = embedding.embed_query("Hello world")
 print(len(vec))
 
 
@@ -74,5 +74,6 @@ def answer_question(user_question):
 
     response = qa_chain.invoke({"query": user_question})
     answer = response["result"]
+
 
     return answer
