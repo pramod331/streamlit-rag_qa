@@ -54,7 +54,7 @@ def process_document_to_chroma_db(file_name):
     #store the documents chunks into chroma vector database
     vectordb= Chroma.from_documents(
         documents=texts,
-        embeddings=embedding,
+        embedding=embedding,
         persist_directory=f"{working_dir}/doc_vectorstore"
     )
     return 0
@@ -81,4 +81,5 @@ def answer_question(user_question):
 
 
     return answer
+
 
