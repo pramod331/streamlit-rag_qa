@@ -1,7 +1,9 @@
 streamlit
 python-dotenv
 langchain==0.2.11
+langchain-community==0.2.10
 langchain-chroma==0.1.2
+
 
 
 langchain-community
@@ -13,4 +15,5 @@ sentence-transformers
 chromadb
 
 pypdf
+
 
