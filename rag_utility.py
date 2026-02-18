@@ -20,11 +20,14 @@ load_dotenv()
 working_dir = os.path.dirname(os.path.abspath(__file__))
 
 #load embedding model
-embedding = HuggingFaceEmbeddings()
+@st.cache_resource
+def get_embedding():
+    return HuggingFaceEmbeddings(
+        model_name="BAAI/bge-small-en-v1.5"
+    )
 
-# embeddings = HuggingFaceEmbeddings(
-#     model_name="sentence-transformers/all-mpnet-base-v2"
-# )
+embedding = get_embedding()
+
 
 vec = embedding.embed_query("Hello world")
 print(len(vec))
@@ -44,8 +47,8 @@ def process_document_to_chroma_db(file_name):
     documents = loader.load()
     #split the text into chunks for embedding
     text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=2000,
-        chunk_overlap=200
+        chunk_size=800,
+        chunk_overlap=100
     )
     texts = text_splitter.split_documents(documents)
 
@@ -64,7 +67,7 @@ def answer_question(user_question):
         embedding_function=embedding
     )
     # Create a retriever for document view
-    retriever = vectordb.as_retriever()
+    retriever = vectordb.as_retriever(search_kwargs={"k": 3})
 
     #create a RetrieverQA chain to answer user questions using Llama-3.3-70B
 
@@ -79,6 +82,7 @@ def answer_question(user_question):
 
 
     return answer
+
 
 
 
