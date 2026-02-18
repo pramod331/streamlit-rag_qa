@@ -11,7 +11,7 @@ from rag_utility import process_document_to_chroma_db, answer_question
 # working_dir = os.getcwd()
 working_dir = os.path.dirname(os.path.abspath((__file__)))
 
-st.title(" Llama-3.3-70B - Document RAG - Pramod")
+st.title("Document RAG Application - Pramod")
 
 #file uploader widget
 uploaded_file = st.file_uploader("Upload a PDF file", type=["pdf"])
@@ -43,4 +43,5 @@ if st.button("Answer"):
     st.markdown("###  Llama-3.3-70B Response")
 
     st.markdown(answer)
+
 
