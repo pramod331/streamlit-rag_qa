@@ -4,16 +4,14 @@ from http.client import responses
 
 from dotenv import load_dotenv
 
-# from langchain_community.document_loaders import UnstructuredPDFLoader
 from langchain_community.document_loaders import PyPDFLoader
-
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-
 from langchain_huggingface import HuggingFaceEmbeddings
-
 from langchain_chroma import Chroma
 from langchain_groq import ChatGroq
-from langchain_classic.chains import RetrievalQA
+from langchain.chains import RetrievalQA
+
+
 
 # load environment variables
 load_dotenv()
@@ -81,5 +79,6 @@ def answer_question(user_question):
 
 
     return answer
+
 
 
