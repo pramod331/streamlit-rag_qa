@@ -11,7 +11,4 @@ langchain-groq
 sentence-transformers
 chromadb
 
-unstructured[pdf]
 pypdf
-
-opencv-python-headless
