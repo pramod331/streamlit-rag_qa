@@ -1,25 +1,17 @@
-# Core
-python-dotenv>=1.0.0
-streamlit>=1.30.0
+streamlit
+python-dotenv
 
-# NLP / Embeddings
-sentence-transformers>=2.6.0
-transformers>=4.40.0,<5.0.0
-huggingface-hub>=0.20.0,<1.0.0
-nltk>=3.8.1
+langchain
+langchain-community
+langchain-huggingface
+langchain-chroma
+langchain-text-splitters
+langchain-groq
 
-# LangChain ecosystem
-langchain>=0.2.0
-langchain-community>=0.2.0
-langchain-huggingface>=0.0.3
-langchain-text-splitters>=0.2.0
-langchain-unstructured>=0.1.0
-langchain-chroma>=0.1.0
-langchain-groq>=0.1.0
+sentence-transformers
+chromadb
 
-# Vector DB
-chromadb>=0.5.0
+unstructured[pdf]
+pypdf
 
-# Document parsing
-unstructured[pdf]>=0.12.0
-pypdf>=4.0.0
+opencv-python-headless
