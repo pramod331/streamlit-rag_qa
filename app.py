@@ -4,7 +4,10 @@ import streamlit as st
 import certifi
 # print(certifi.where())
 
+import sys
 
+# Set PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION environment variable
+os.environ['PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION'] = 'python'
 from rag_utility import process_document_to_chroma_db, answer_question
 
 # set the working directory
